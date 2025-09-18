@@ -1,0 +1,28 @@
+# Run CI when code is pushed to the main branch
+trigger:
+  branches:
+    include:
+      - main
+
+# Use a Microsoft-hosted agent
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: CIJob
+  displayName: 'Build-Test-Deploy Job'
+  steps:
+    - script: |
+        echo "Build script is running"
+        # Example: mvn -B clean package
+      displayName: 'Build Script'
+
+    - script: |
+        echo "Test script is running"
+        # Example: mvn test
+      displayName: 'Test Script'
+
+    - script: |
+        echo "Deploy script is running"
+        # Example: az webapp deploy or kubectl apply -f manifest.yaml
+      displayName: 'Deploy Script'
