@@ -1,0 +1,40 @@
+# Multi job
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmimage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+    jobs:
+    - job: Buildj
+      displayName: 'Build Job'
+        steps:
+        - script: |
+            echo "Build script is running"
+          displayName: 'Build Script'  
+- stage: Test
+  displayName: 'Test Stage'
+    jobs:  
+    - job: BuildT
+      displayName: 'Test Job'    
+        steps:
+        - script: |
+            echo "Test script is running"
+          displayName: 'Test script'
+- stage: Deploy
+  displayName: 'Deploy Stage'
+    jobs:  
+    - job: deployj
+      displayName: 'Deploy Job'    
+      steps: 
+      - script: |
+          echo "script is running"
+        displayName: 'Deploy Script'  
+    
+        
+    
