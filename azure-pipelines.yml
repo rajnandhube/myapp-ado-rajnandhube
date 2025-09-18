@@ -9,23 +9,25 @@ pool:
 stages:
 - stage: Build
   displayName: 'Build Stage'
-  jobs:
-    steps:
-    - script: |
-        echo "Build script is running"
-      displayName: 'Build Script'  
+    jobs:
+      steps:
+      - script: |
+          echo "Build script is running"
+        displayName: 'Build Script'  
 - stage: Test
   displayName: 'Test Stage'
-    steps:
-    - script: |
-        echo "Test script is running"
-      displayName: 'Test script'
+    jobs:  
+      steps:
+      - script: |
+          echo "Test script is running"
+        displayName: 'Test script'
 - stage: Deploy
   displayName: 'Deploy Stage'
-    steps: 
-    - script: |
-        echo "script is running"
-      displayName: 'Deploy Script'  
+    jobs:  
+      steps: 
+      - script: |
+          echo "script is running"
+        displayName: 'Deploy Script'  
     
         
     
